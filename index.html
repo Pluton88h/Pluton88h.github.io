@@ -2,31 +2,144 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Моя визитка</title>
+  <title>Визитка</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
-      font-family: Arial;
-      background: #f4f4f4;
-      text-align: center;
-      padding: 50px;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      color: #111;
     }
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      max-width: 500px;
-      margin: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    .container {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .section {
+      border-top: 1px solid #ddd;
+      padding: 20px 0;
+    }
+
+    .section h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .skills span {
+      display: inline-block;
+      border: 1px solid #111;
+      padding: 5px 10px;
+      margin: 5px 5px 0 0;
+      font-size: 14px;
+    }
+
+    .email {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      border: 1px solid #111;
+      background: transparent;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    .copied {
+      font-size: 12px;
+      color: #777;
+      margin-top: 5px;
+      display: none;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 12px;
+      color: #777;
+      border-top: 1px solid #ddd;
+      padding-top: 15px;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Артём</h1>
-    <p>Студент 3 курса (09.02.07 Информационные системы и программирование)</p>
-    <p>Python | JavaScript | HTML | CSS | SQL | MongoDB</p>
-    <p>Связаться:</p>
-    <p>Email: chukhninartem07@mail.ru</p>
+
+<div class="container">
+
+  <h1>Артём</h1>
+  <div class="subtitle">
+    Студент 3 курса · 09.02.07 «Информационные системы и программирование»
   </div>
+
+  <div class="section">
+    <h2>ОБО МНЕ</h2>
+    <p>
+      Я обучаюсь на 3 курсе по специальности «Информационные системы и программирование».
+      Изучаю разработку программного обеспечения и веб-технологии.
+      Имею базовые знания в области клиентской и серверной разработки,
+      работаю с базами данных. Также есть небольшой опыт разработки Android-приложений.
+    </p>
+  </div>
+
+  <div class="section skills">
+    <h2>НАВЫКИ</h2>
+    <span>Python</span>
+    <span>JavaScript</span>
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>SQL</span>
+    <span>MongoDB</span>
+    <span>Kotlin</span>
+    <span>Java</span>
+  </div>
+
+  <div class="section">
+    <h2>КОНТАКТЫ</h2>
+    <div class="email" id="email">chukhninartem07@mail.ru</div>
+    <button onclick="copyEmail()">Скопировать email</button>
+    <div class="copied" id="copiedText">Скопировано в буфер обмена</div>
+  </div>
+
+
+
+</div>
+
+<script>
+  function copyEmail() {
+    const email = document.getElementById("email").innerText;
+    navigator.clipboard.writeText(email);
+
+    const text = document.getElementById("copiedText");
+    text.style.display = "block";
+
+    setTimeout(() => {
+      text.style.display = "none";
+    }, 2000);
+  }
+</script>
+
 </body>
 </html>
+
+
